@@ -86,7 +86,7 @@ const TaskList = () => {
                 )}
               </div>
             </div>
-            <TaskTimeline timeline={task.timeline} />
+            {/* <TaskTimeline timeline={task.timeline} /> */}
           </div>
         ))}
     </div>

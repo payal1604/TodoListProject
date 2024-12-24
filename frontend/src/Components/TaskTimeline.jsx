@@ -10,7 +10,11 @@ const TaskTimeline = ({ timeline }) => {
       <ul className="list-disc list-inside">
         {timeline.map((time, index) => (
           <li key={index}>
-            {time.event + "  at "+ new Date(time.timeStamp).toLocaleDateString()+ " , " +new Date(time.timeStamp).toLocaleTimeString() }
+            {time.event +
+              "  at " +
+              new Date(time.timeStamp).toLocaleDateString() +
+              " , " +
+              new Date(time.timeStamp).toLocaleTimeString()}
           </li>
         ))}
       </ul>

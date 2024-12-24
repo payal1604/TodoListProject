@@ -1,5 +1,6 @@
 const { timeStamp } = require("console");
 const Task = require("../Model/taskModel");
+
 const getAllTasks = async (req, res) => {
   try {
     const tasks = await Task.find();
@@ -74,10 +75,28 @@ const sendReminder = async (req, res) => {
     return res.status(500).json({ error: error.message });
   }
 };
+const getAllStatusPending = async (req, res) => {
+  try {
+    // const task = await Task.aggregate([
+    //   {
+    //     $match: {
+    //       status: "Pending",
+    //     },
+    //   },
+    // ]);
+    const task = await Task.find({ status: "Pending" });
+    return res.status(200).send(task);
+
+    // return res.status(200).send({ message: "Task Deleted succesfully", id });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+};
 module.exports = {
   getAllTasks,
   addNewTask,
   updateTask,
   deleteTask,
   sendReminder,
+  getAllStatusPending,
 };
